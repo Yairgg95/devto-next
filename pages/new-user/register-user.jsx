@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { registerUser } from "@/lib/api"
 import { useRouter } from "next/router";
