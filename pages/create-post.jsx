@@ -1,11 +1,10 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { getUsers, newPost } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
 export default function CreatePost() {
   const router = useRouter();
-  const { handleSubmit, register, formState: { errors }, setError } = useForm();
+  const { handleSubmit, register, formState: { errors } } = useForm();
 
   async function onSubmit(data) {
     const token = localStorage.getItem("token");
@@ -13,14 +12,19 @@ export default function CreatePost() {
 
     if (token) {
       try {
-        const users = await getUsers(token);
-        const user = users.find(user => user.email === email);
+        const response = await getUsers(token);
+        if (response && response.data && Array.isArray(response.data.Users)) {
+          const users = response.data.Users;
+          const user = users.find(user => user.email === email);
 
-        if (user) {
-          await newPost(data.title, data.image, data.body, user._id, [], token);
-          router.push("/");
+          if (user) {
+            await newPost(data.title, data.image, data.body, user._id, token);
+            router.push("/");
+          } else {
+            console.error("User not found");
+          }
         } else {
-          console.error("User not found");
+          console.error("Invalid response structure:", response);
         }
       } catch (error) {
         console.error("Error creating post:", error);
