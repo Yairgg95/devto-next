@@ -9,7 +9,7 @@ export default function Posts({ posts, users }) {
   function handleClick() {}
 
   return (
-    <Link href={"/posts/[id]"}>
+    <Link key={`post-link-${idx}`} href={"/posts/post._id"}>
     <section className="mt-4">
       {posts.map((post, idx) => {
         return (
