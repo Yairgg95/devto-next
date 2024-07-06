@@ -2,16 +2,16 @@ import Navbar from "@/components/Navbar";
 import LeftAside from "@/components/LeftAside";
 import MainContent from "@/components/MainContent";
 import RightAside from "@/components/RightAside";
-import { getPosts, getUsers } from "@/lib/api";
+import { getPosts} from "@/lib/api";
 
-export default function Home({ posts, users }) {
+export default function Home({ posts }) {
 
   
   return (
     <main className="grid grid-cols-1 md:grid-cols-[1fr_3fr] lg:grid-cols-[1fr_3fr_1.5fr] grid-rows-[55px_1fr]  bg-[#F5F5F5] h-lvh">
       <Navbar />
       <LeftAside />
-      <MainContent posts={posts} users={users} />
+      <MainContent posts={posts}/>
       <RightAside/>
     </main>
   );
@@ -20,12 +20,10 @@ export default function Home({ posts, users }) {
 export async function getServerSideProps() {
   try {
     const posts = await getPosts();
-    const users = await getUsers();
 
     return {
       props: {
         posts,
-        users: users || []
       },
     };
   } catch (error) {
@@ -34,7 +32,6 @@ export async function getServerSideProps() {
     return {
       props: {
         posts: [],
-        users: [],
       },
     };
   }
