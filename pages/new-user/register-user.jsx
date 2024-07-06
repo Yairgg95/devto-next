@@ -34,15 +34,15 @@ export default function RegisterUser() {
     return (
         <main className="flex justify-center p-1 w-full min-h-dvh">
             <div className="border rounded flex flex-col justify-center w-full p-4 max-w-[580px] md:min-w-[580px] mt-9 mb-9">
-                <h2 className="text-xl mb-12">Crea tu cuenta</h2>
+                <h2 className="text-xl mb-12">Create your account</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <p className="mb-2">Imagen de perfil</p>
+                    <p className="mb-2">Profile image</p>
                     <input
                         className="border rounded w-full p-2 mb-2"
                         type="text"
                         {...register("profilePic")}
                     />
-                    <p className="mb-2">Nombre <span className="text-red-500">*</span></p>
+                    <p className="mb-2">Name <span className="text-red-500">*</span></p>
                     <input
                         className="border rounded w-full p-2 mb-2"
                         type="text"
@@ -50,7 +50,7 @@ export default function RegisterUser() {
                             required: { value: true, message: "El nombre es requerido" }
                         })}
                     />
-                    <p className="mb-2">Nombre de usuario <span className="text-red-500">*</span></p>
+                    <p className="mb-2">Username <span className="text-red-500">*</span></p>
                     <input
                         className="border rounded w-full p-2 mb-2"
                         type="text"
@@ -58,7 +58,7 @@ export default function RegisterUser() {
                             required: { value: true, message: "El nombre de usuario es requerido" }
                         })}
                     />
-                    <p className="mb-2">Correo electrónico <span className="text-red-500">*</span></p>
+                    <p className="mb-2">Email <span className="text-red-500">*</span></p>
                     <input
                         className="border rounded w-full p-2 mb-2"
                         type="text"
@@ -66,7 +66,7 @@ export default function RegisterUser() {
                             required: { value: true, message: "El correo electrónico es requerido" }
                         })}
                     />
-                    <p className="mb-2">Contraseña <span className="text-red-500">*</span></p>
+                    <p className="mb-2">Password <span className="text-red-500">*</span></p>
                     <input
                         className="border rounded w-full p-2 mb-2"
                         type="password"
@@ -74,7 +74,7 @@ export default function RegisterUser() {
                             required: { value: true, message: "La contraseña es requerida" }
                         })}
                     />
-                    <p className="mb-2">Confirmación de contraseña <span className="text-red-500">*</span></p>
+                    <p className="mb-2">Password Confirmation <span className="text-red-500">*</span></p>
                     <input
                         className="border rounded w-full p-2 mb-8"
                         type="password"
@@ -86,7 +86,7 @@ export default function RegisterUser() {
                         className="bg-[#3B49DF] text-white hover:bg-[#2F3AB2] w-[105px] p-2 rounded"
                         type="submit"
                     >
-                        Inscribirse
+                        Sign up
                     </button>
                 </form>
             </div>
