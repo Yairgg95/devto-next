@@ -3,8 +3,6 @@ import Link from "next/link";
 
 export default function Posts({ posts, users }) {
 
- console.log(users)
- console.log(posts)
 
   function handleClick() {}
 
