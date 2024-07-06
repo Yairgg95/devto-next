@@ -43,5 +43,9 @@ npm run dev
 - Perfiles de Usuario: Muestra información del usuario obtenida desde la API.
 
 
+## Programador
+
+- Yair Guadarrama
+
 
 
