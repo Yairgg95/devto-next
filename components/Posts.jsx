@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import Link from "next/link";
 
 
 export default function Posts({ posts, users }) {
@@ -10,6 +9,7 @@ export default function Posts({ posts, users }) {
   function handleClick() {}
 
   return (
+    <Link href={"/posts/[id]"}>
     <section className="mt-4">
       {posts.map((post, idx) => {
         return (
@@ -106,5 +106,6 @@ export default function Posts({ posts, users }) {
         );
       })}
     </section>
+    </Link>
   );
 }
